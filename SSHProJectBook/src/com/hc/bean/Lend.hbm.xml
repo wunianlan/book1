@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.hc.bean.Lend" table="lendinfo">
+		<id name="lid" column="lid">
+			<generator class="native"/>
+		</id>
+		<property name="lend_time" column="lend_time"/>
+		<property name="return_time" column="return_time"/>
+		<!-- 配置读者映射 -->
+		<many-to-one name="reader" class="com.hc.bean.Reader" column="sid"/>
+		<!-- 配置图书映射 -->
+		<many-to-one name="book" class="com.hc.bean.Book" column="bid"/>
+	</class>
+	
+</hibernate-mapping>
